@@ -1,8 +1,9 @@
 .DS_Store
 *.sublime-workspace
-/dist/**/*.js
-/dist/**/*.js.map
-/dist/**/*.d.ts
+# Temporarily push build files to fork
+# /dist/**/*.js
+# /dist/**/*.js.map
+# /dist/**/*.d.ts
 /node_modules
 /npm-debug.log
 /package-lock.json
