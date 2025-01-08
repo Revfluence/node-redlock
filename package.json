@@ -65,7 +65,8 @@
     "build:development": "rm -f dist/**/*.{js,js.map,d.ts} && tsc --watch",
     "test": "cd dist/esm && ava --verbose *.test.js",
     "test:development": "cd dist/esm && ava --verbose --watch *.test.js",
-    "prepare": "yarn build",
+    "//": "We removed the prepare script bc of recursion caused by pnpm when running prepare for git hosted scripts, which also runs install with the preferred pm, which is pnpm if the pnpm-store is within a pnpm workspace directory, which it is in a Docker container - this causes an infinite loop of pnpm install calls. We included the binary in the git hosted files, so there is no need to run install and prepare.",
+    "//prepare": "yarn build",
     "prepublishOnly": "yarn install && yarn lint && yarn build"
   },
   "dependencies": {
