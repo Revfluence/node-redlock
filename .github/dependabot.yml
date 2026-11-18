@@ -3,6 +3,14 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: daily
-      time: "13:00"
-    open-pull-requests-limit: 10
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Security fixes arrive as one PR; minor and patch updates as one weekly PR (CVE Remediation, ASP-6055).
+    groups:
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
+      npm-minor-patch:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
